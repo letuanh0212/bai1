@@ -13,10 +13,10 @@ print_r( $arr);
 echo"<br/>";
 var_dump($arr);
 echo"<br/>";
-$arr3=['dong'=>'0941846092','tran'=>'01626532623'];
+$arr3=['anh'=>'0941846092','tuan'=>'01626532623'];
 print_r($arr3);
 echo"<br/>";
-$arr3['viet']='085455262652';
+$arr3['le']='085455262652';
 print_r($arr3);
 
 echo "<br/>demo sort<br/>";

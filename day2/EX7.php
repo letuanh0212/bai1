@@ -1,6 +1,13 @@
 <?php
 class Customer {
-
+    public $id;
+    public $username;
+    public $password;
+    public $fullname;
+    public $address;
+    public $phone;
+    public $gender;
+    public $birthday;
 
     public function __construct($id, $username, $password, $fullname, $address, $phone, $gender, $birthday) {
         $this->id = $id;
