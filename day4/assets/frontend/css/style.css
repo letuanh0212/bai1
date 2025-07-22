@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Đảm bảo body chiếm hết chiều cao của cửa sổ trình duyệt */
+}
+
+main {
+    flex: 1; /* Cho phép phần main chiếm phần còn lại của chiều cao */
+}
+.carousel-item {
+    height: 32rem; /* Chiều cao của mỗi item trong carousel */
+    background-color: #777; /* Màu nền mặc định cho các item */
+}
+.carousel-item img {
+ 
+    width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của item */
+    height: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều cao của item */
+
+}
+.marketing .icon{
+    width: 140px;
+    height: auto;
+    font-size: 60px;
+    text-align: center;
+    margin: 0 auto;
+}
