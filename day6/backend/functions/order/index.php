@@ -2,12 +2,12 @@
 <?php
 session_start();
 include_once(__DIR__ . '/../../../dbconnect.php');
-
+$conn = connectDb();
 // Kiểm tra quyền admin
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
-    echo "<div class='alert alert-danger'>Bạn không có quyền truy cập trang này!</div>";
-    exit;
-}
+// if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+//     echo "<div class='alert alert-danger'>Bạn không có quyền truy cập trang này!</div>";
+//     exit;
+// }
 
 $sql = "SELECT o.*, u.username FROM orders o LEFT JOIN user u ON o.user_id = u.id ORDER BY o.ordered_at DESC";
 $result = $conn->query($sql);

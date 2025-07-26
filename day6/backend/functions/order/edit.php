@@ -2,11 +2,12 @@
 <?php
 session_start();
 include_once(__DIR__ . '/../../../dbconnect.php');
+$conn = connectDb();
 
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
-    echo "<div class='alert alert-danger'>Bạn không có quyền truy cập trang này!</div>";
-    exit;
-}
+// if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+//     echo "<div class='alert alert-danger'>Bạn không có quyền truy cập trang này!</div>";
+//     exit;
+// }
 
 $id = $_GET['id'] ?? 0;
 $sql = "SELECT * FROM orders WHERE id = ?";
