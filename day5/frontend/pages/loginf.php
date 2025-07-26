@@ -1,4 +1,6 @@
+
 <?php
+session_start();
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username = trim($_POST['username']);
@@ -6,7 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $conn = connectDb();
 
-  $stmt = $conn->prepare("SELECT id, username, password FROM user WHERE username = ?");
+  // Thêm lấy role
+  $stmt = $conn->prepare("SELECT id, username, password, role FROM user WHERE username = ?");
   $stmt->bind_param('s', $username);
   $stmt->execute();
   $result = $stmt->get_result();
@@ -16,7 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (password_verify($password, $user['password'])) {
       $_SESSION['user_id'] = $user['id'];
       $_SESSION['username'] = $user['username'];
-      header('Location: /demoshop/frontend/index.php');
+      $_SESSION['role'] = $user['role']; // Lưu role
+
+      // Chuyển hướng theo role
+      if ($user['role'] == 'admin') {
+        header('Location: /demoshop/backend/functions/order/index.php');
+      } else {
+        header('Location: /demoshop/frontend/index.php');
+      }
       exit();
     } else {
       $error = "Tên đăng nhập hoặc mật khẩu không đúng.";
